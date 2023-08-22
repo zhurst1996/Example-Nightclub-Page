@@ -58,3 +58,19 @@
 .side-navigation .active-blog {
   color: #a520ca;
 }
+
+.active-tippy-theme {
+  background-color: #a520ca;
+}
+.tippy-sub-1-theme {
+  top: 0.5rem !important;
+  padding: 5px 25px;
+}
+.tippy-sub-2-theme {
+  top: 1.5rem !important;
+  padding: 5px 25px;
+}
+.tippy-sub-3-theme {
+  top: 2.5rem !important;
+  padding: 5px 25px;
+}

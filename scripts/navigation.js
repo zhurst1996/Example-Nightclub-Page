@@ -7,30 +7,33 @@
         localStorage.setItem('activeBlog', 1);
     }
 
-    function createNavigationTabs() {
+    function createNavigationTabs(preventTippy) {
         var blogNum = document.getElementsByClassName('blog-container').length;
 
         for (var i = 0; i < blogNum; i++) {
             var newBlogTab = document.createElement('i');
 
-            if ((i + 1) == currentBlogPage) {
-                newBlogTab.classList = "blog-tab active-blog fa-solid fa-star text-lg";
-            } else {
-                newBlogTab.classList = "blog-tab fa-regular fa-star text-lg";
-            }
-
+            newBlogTab.classList = (i + 1) == currentBlogPage ? "blog-tab active-blog fa-solid fa-star text-lg" : "blog-tab fa-regular fa-star text-lg";
             newBlogTab.id = "blog-tab-" + (i + 1);
             document.getElementsByClassName('side-navigation')[0].appendChild(newBlogTab);
-            
-            tippy('#' + newBlogTab.id, {
-                content: document.getElementsByClassName('blog-container')[i].getAttribute('data-tab-title'),
-                placement: "left",
-                interactive: true
-            });
+
+            if (!document.getElementById(newBlogTab.id).tippy && !preventTippy) {
+                tippy('#' + newBlogTab.id, {
+                    content: document.getElementsByClassName('blog-container')[i].getAttribute('data-tab-title'),
+                    placement: "left-start",
+                    showOnCreate: true,
+                    distance: "30px",
+                    inlinePositioning: true,
+                    trigger: "click",
+                    animation: "shift-toward",
+                    theme: (i + 1) == currentBlogPage ? "tippy-sub-" + (i + 1) + ' active-tippy' : "tippy-sub-" + (i + 1),
+                    responsive: true
+                });
+            }
         }
     }
 
-    function selectBlogPage(pageNum) {
+    function selectBlogPage(pageNum, preventTippy) {
         if (pageNum == currentBlogPage) {
             return;
         }
@@ -48,10 +51,13 @@
         */
         for (var ab = (blogNum - 1); ab >= 0; ab--) {
             var blogTab = document.getElementsByClassName('blog-tab')[ab];
+            if (!!blogTab.tippy) {
+                blogTab.tippy('destroy');
+            }
             blogTab.remove();
         }
 
-        createNavigationTabs();
+        createNavigationTabs(preventTippy);
         bindSideNavigation();
 
         for (var i = 0; i < blogNum; i++) {
@@ -126,7 +132,7 @@
         Init
     */
     document.addEventListener('DOMContentLoaded', function () {
-        createNavigationTabs();
+        createNavigationTabs(true);
         selectBlogPage();
         bindSideNavigation();
     }, false);

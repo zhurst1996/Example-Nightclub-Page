@@ -20,10 +20,14 @@
             }
 
             newBlogTab.id = "blog-tab-" + (i + 1);
-
             document.getElementsByClassName('side-navigation')[0].appendChild(newBlogTab);
+            
+            tippy('#' + newBlogTab.id, {
+                content: document.getElementsByClassName('blog-container')[i].getAttribute('data-tab-title'),
+                placement: "left",
+                interactive: true
+            });
         }
-
     }
 
     function selectBlogPage(pageNum) {
@@ -47,20 +51,7 @@
             blogTab.remove();
         }
 
-        for (var cd = 0; cd < blogNum; cd++) {
-            var newBlogTab = document.createElement('i');
-
-            if ((cd + 1) == currentBlogPage) {
-                newBlogTab.classList = "blog-tab active-blog fa-solid fa-star text-lg";
-            } else {
-                newBlogTab.classList = "blog-tab fa-regular fa-star text-lg";
-            }
-
-            newBlogTab.id = "blog-tab-" + (cd + 1);
-
-            document.getElementsByClassName('side-navigation')[0].appendChild(newBlogTab);
-        }
-
+        createNavigationTabs();
         bindSideNavigation();
 
         for (var i = 0; i < blogNum; i++) {

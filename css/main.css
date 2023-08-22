@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous:400);
+
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'righteous', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f2f2f2;
+}
+
+.scrollable-div {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+body {
+    background: rgb(27,27,27);
+    background: linear-gradient(350deg, rgba(27,27,27,1) 22%, rgba(189,21,80,1) 69%, rgba(27,27,27,1) 100%);
+    background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+    background-color: #000;
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(350deg, rgba(189,21,80,1) 22%, #a520ca 69%, rgba(189,21,80,1) 100%);
+    border-radius: 10px;
+}
+
+.blog-header {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5px;
+}
+
+.blog-header h2 {
+    z-index: 2999;
+}
+
+.blog-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.blog {
+    max-width: 40vw;
+    z-index: 2999;
+}
+
+.blog-image {
+    max-width: 40vw;
+    z-index: 2999;
+}
+
+.blog-content-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-content-footer svg {
+    padding: 15px;
+}
+
+.blog-content-footer svg:hover {
+    cursor: pointer;
+    color: #BD1550;
+}
+
+.button-red {
+    background-color: #BD1550;
+    border: 1px solid #ddd;
+    color: #ddd;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    z-index: 2999;
+}
+
+.button-red:hover {
+    background-color: #991140;
+}

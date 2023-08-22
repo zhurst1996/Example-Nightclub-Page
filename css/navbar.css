@@ -1,0 +1,60 @@
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 3000;
+  border-bottom: 1px #ddd solid;
+  width: 100vw;
+  padding: 10px;
+}
+
+.navbar > * {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 11px 8vw;
+  margin-left: 2vw;
+  text-decoration: none;
+  border-bottom: 5px solid;
+  border-image: repeating-radial-gradient(135deg, #ddd 0 10px, #000 0 20px, #BD1550 0 30px) 8;
+  -webkit-mask:
+    conic-gradient(from 180deg at top 8px right 8px, #0000 90deg, #000 0) var(--_i, 200%) 0 /200% var(--_i, 8px) border-box no-repeat,
+    conic-gradient(at bottom 8px left 8px, #0000 90deg, #000 0) 0 var(--_i, 200%)/var(--_i, 8px) 200% border-box no-repeat,
+    linear-gradient(#000 0 0) padding-box no-repeat;
+  transition: .15s, -webkit-mask-position .15s .15s;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  --_i: 100%;
+  color: #ddd;
+  transition: .15s, -webkit-mask-size .15s .15s;
+}
+
+.side-navigation {
+  position: absolute;
+  top: 35vh;
+  right: 5vh;
+  display: grid;
+}
+
+.side-navigation svg {
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.side-navigation .active-blog {
+  color: #a520ca;
+}

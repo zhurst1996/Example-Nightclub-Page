@@ -1,0 +1,12 @@
+.img-md {
+    max-width: 650px;
+    border-radius: 15px;
+}
+
+.text-md {
+    font-size: 20px;
+}
+
+.text-lg {
+    font-size: 33px;
+}
